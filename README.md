@@ -88,4 +88,3 @@ Se o chat não responder, verifique no painel Cloudflare:
 3. A migração SQL foi executada.
 4. O secret `JARVIS_ACCESS_PASSWORD` está configurado.
 5. A conta continua no plano Workers Free e ainda possui franquia diária disponível.
-

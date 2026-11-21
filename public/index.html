@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#081525"><meta name="description" content="JARVIS — assistente pessoal inteligente">
+  <link rel="manifest" href="/manifest.webmanifest"><link rel="stylesheet" href="/style.css">
+  <title>JARVIS | Assistente Pessoal</title>
+</head>
+<body>
+<div class="shell">
+  <aside class="sidebar">
+    <div class="brand"><div class="brand-mark">J</div><div><strong>J.A.R.V.I.S.</strong><small>PERSONAL INTELLIGENCE</small></div></div>
+    <div class="nav-label">CENTRAL</div>
+    <button class="nav active" data-section="assistant">◉ <span>Assistente</span></button>
+    <button class="nav" data-section="professional">▤ <span>Profissional</span></button>
+    <button class="nav" data-section="personal">▦ <span>Pessoal</span></button>
+    <button class="nav" data-section="home">⌂ <span>Casa inteligente</span></button>
+    <button class="nav" data-section="finance">◈ <span>Financeiro</span></button>
+    <div class="sidebar-bottom"><span class="status-dot"></span> Núcleo operacional <small> Cloud Free 0.2</small></div>
+  </aside>
+  <main class="main">
+    <header class="topbar"><div><div class="eyebrow">SISTEMA DE ASSISTÊNCIA PESSOAL</div><h1 id="pageTitle">Assistente JARVIS</h1></div><div class="top-status"><span class="status-dot"></span> CLOUD FREE</div></header>
+    <section class="dashboard">
+      <div class="hero panel"><div class="hero-copy"><div class="eyebrow">INTERFACE DE COMANDO</div><h2>À disposição.</h2><p>Estou pronto para ajudar a organizar, analisar e planejar suas atividades.</p></div>
+        <div class="orb-wrap"><div class="orb-ring ring-one"></div><div class="orb-ring ring-two"></div><button id="micButton" class="orb" aria-label="Iniciar comando de voz"><span>J</span></button><div id="voiceState" class="voice-state">TOQUE PARA FALAR</div></div>
+        <div class="hero-foot"><span>◉ PORTUGUÊS BRASILEIRO</span><span>◉ AUTORIZAÇÃO MANUAL ATIVA</span></div>
+      </div>
+      <div class="content-grid">
+        <section class="panel chat-panel"><div class="panel-head"><div><div class="eyebrow">COMUNICAÇÃO</div><h3>Conversa com JARVIS</h3></div><button id="clearButton" class="ghost">Nova conversa</button></div>
+          <div id="messages" class="messages"><div class="message assistant"><div class="avatar">J</div><div><b>JARVIS</b><p>Olá. Sou seu assistente pessoal. Digite uma mensagem ou utilize o botão de voz. Esta versão mantém o histórico na nuvem por até 30 dias.</p></div></div></div>
+          <form id="chatForm" class="composer"><input id="messageInput" autocomplete="off" placeholder="Digite seu comando..." aria-label="Mensagem"><button class="send" type="submit">Enviar ↗</button></form>
+          <div class="hint">As integrações externas e ações automatizadas permanecem desativadas. Nenhuma ação será executada sem sua autorização.</div>
+        </section>
+        <aside class="right-column">
+          <section class="panel quick-panel"><div class="eyebrow">ACESSO RÁPIDO</div><h3>Módulos</h3>
+            <button class="quick" data-prompt="Ajude-me com uma atividade profissional relacionada à implantação ferroviária.">▤ <span>Gestão profissional</span><b>›</b></button>
+            <button class="quick" data-prompt="Ajude-me a organizar meus compromissos e tarefas pessoais.">▦ <span>Organização pessoal</span><b>›</b></button>
+            <button class="quick" data-prompt="Quero planejar uma automação residencial usando Home Assistant, considerando que ainda não tenho um servidor em casa.">⌂ <span>Casa inteligente</span><b>›</b></button>
+            <button class="quick" data-prompt="Ajude-me a estruturar um acompanhamento financeiro pessoal.">◈ <span>Planejamento financeiro</span><b>›</b></button>
+          </section>
+          <section class="panel status-panel"><div class="eyebrow">INFRAESTRUTURA</div><h3>Status dos serviços</h3>
+            <div class="service"><span>Interface web</span><b class="good">● Ativa</b></div>
+            <div class="service"><span>Reconhecimento de voz</span><b id="speechStatus">● Verificando</b></div>
+            <div class="service"><span>IA Cloudflare</span><b id="aiStatus" class="pending">● Aguardando</b></div>
+            <div class="service"><span>Memória D1</span><b class="pending">● Configurar</b></div>
+            <div class="service"><span>Home Assistant</span><b class="pending">● Etapa futura</b></div>
+          </section>
+        </aside>
+      </div>
+    </section>
+    <footer>JARVIS Cloud Free 0.2 <span>•</span> Dados protegidos por senha <span>•</span> Controle de ações pelo usuário</footer>
+  </main>
+</div>
+<script src="/app.js"></script>
+</body></html>

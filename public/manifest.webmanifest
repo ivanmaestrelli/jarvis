@@ -1,0 +1,9 @@
+{
+  "name": "JARVIS - Assistente Pessoal",
+  "short_name": "JARVIS",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#071321",
+  "theme_color": "#081525",
+  "description": "Assistente pessoal inteligente"
+}
