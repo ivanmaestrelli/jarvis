@@ -26,7 +26,11 @@ export async function onRequestPost({request, env}) {
     const rows = await env.DB.prepare('SELECT role, content FROM messages WHERE conversation_id = ? ORDER BY id DESC LIMIT 10').bind(conversationId).all();
     const prior = (rows.results || []).reverse();
     const messages = [{role:'system', content:SYSTEM_PROMPT}, ...prior, {role:'user', content:message}];
-    const result = await env.AI.run(MODEL, {messages, max_tokens:1200, temperature:0.45});
+    const result = await env.AI.run(MODEL, {
+  messages,
+  max_tokens: 650,
+  temperature: 0.45
+});
     const reply = result?.response || result?.result?.response || result?.choices?.[0]?.message?.content;
     if (typeof reply !== 'string' || !reply.trim()) throw new Error('Resposta vazia do modelo.');
 
