@@ -24,7 +24,7 @@ O código não usa OpenAI API, Render, Docker ou servidor ligado em casa. Home A
 ### 2. Criar a base D1
 
 1. No painel Cloudflare, abra **Workers & Pages → D1 SQL Database**.
-2. Crie uma base chamada `jarvis-memory`.
+2. Crie uma base chamada `jarvis-db`.
 3. Copie o Database ID.
 4. No arquivo `wrangler.toml`, substitua `REPLACE_WITH_YOUR_D1_DATABASE_ID` pelo ID real.
 5. No painel da base D1, abra **Console** e execute todo o conteúdo de `migrations/0001_init.sql`.
