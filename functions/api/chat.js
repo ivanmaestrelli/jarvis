@@ -23,7 +23,7 @@ export async function onRequestPost({request, env}) {
   try {
     // Retenção simples: remove conversas antigas e limita cada conversa às últimas 40 mensagens.
     await env.DB.prepare('DELETE FROM messages WHERE created_at < unixepoch() - 2592000').run();
-    const rows = await env.DB.prepare('SELECT role, content FROM messages WHERE conversation_id = ? ORDER BY id DESC LIMIT 14').bind(conversationId).all();
+    const rows = await env.DB.prepare('SELECT role, content FROM messages WHERE conversation_id = ? ORDER BY id DESC LIMIT 10').bind(conversationId).all();
     const prior = (rows.results || []).reverse();
     const messages = [{role:'system', content:SYSTEM_PROMPT}, ...prior, {role:'user', content:message}];
     const result = await env.AI.run(MODEL, {messages, max_tokens:1200, temperature:0.45});
