@@ -17,7 +17,45 @@ function addMessage(role, text) {
 }
 function speak(text) {
   if (!('speechSynthesis' in window)) return;
-  window.speechSynthesis.cancel(); const utterance = new SpeechSynthesisUtterance(text); utterance.lang = 'pt-BR'; utterance.rate = 1; window.speechSynthesis.speak(utterance);
+
+  const synth = window.speechSynthesis;
+  synth.cancel();
+
+  const utterance = new SpeechSynthesisUtterance(text);
+  utterance.lang = 'pt-BR';
+
+  // Voz natural e ritmo de conversação
+  utterance.rate = 0.96;
+  utterance.pitch = 1.0;
+  utterance.volume = 1.0;
+
+  // Prioriza vozes em português brasileiro
+  const voices = synth.getVoices();
+
+  const ptVoices = voices.filter(v =>
+    /^pt[-_]BR$/i.test(v.lang) ||
+    /portugu[eê]s.*brasil/i.test(v.name)
+  );
+
+  // Preferência por voz Google em português brasileiro
+  const selectedVoice =
+    ptVoices.find(v => /google/i.test(v.name)) ||
+    ptVoices.find(v => /natural/i.test(v.name)) ||
+    ptVoices[0];
+
+  if (selectedVoice) {
+    utterance.voice = selectedVoice;
+    utterance.lang = selectedVoice.lang;
+  }
+
+  synth.speak(utterance);
+}
+
+// Atualiza a lista quando o navegador disponibilizar as vozes
+if ('speechSynthesis' in window) {
+  window.speechSynthesis.onvoiceschanged = () => {
+    window.speechSynthesis.getVoices();
+  };
 }
 function getPassword() {
   if (!accessPassword) {
