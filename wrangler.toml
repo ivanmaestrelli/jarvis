@@ -8,5 +8,5 @@ binding = "AI"
 [[d1_databases]]
 binding = "DB"
 database_name = "jarvis-memory"
-database_id = "REPLACE_WITH_YOUR_D1_DATABASE_ID"
+database_id = "58e980ce-21c0-450a-96df-19260992a159"
 migrations_dir = "migrations"
